@@ -470,7 +470,7 @@ section {
 --------------------------------------------------------------*/
 .resume .resume-title {
   font-size: 26px;
-  font-weight: 700;
+  font-weight: 500;
   margin-top: 20px;
   margin-bottom: 20px;
   color: #050d18;
@@ -668,7 +668,7 @@ section {
 
 .portfolio-details .portfolio-info h3 {
   font-size: 22px;
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid #eee;
@@ -690,7 +690,7 @@ section {
 
 .portfolio-details .portfolio-description h2 {
   font-size: 26px;
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 20px;
 }
 
@@ -734,7 +734,7 @@ section {
 
 .services .title {
   margin-left: 80px;
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 15px;
   font-size: 18px;
 }
