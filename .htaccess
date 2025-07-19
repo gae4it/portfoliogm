@@ -1,1 +1,44 @@
+# Serve a custom 404 page
 ErrorDocument 404 /index.html
+
+# Serve a custom 403 page
+ErrorDocument 403 /403.html
+
+# Enable Rewrite Engine
+RewriteEngine On
+
+# Block Search Engine and AI Bots
+RewriteCond %{HTTP_USER_AGENT} Googlebot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Bingbot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Slurp [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} DuckDuckBot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Baiduspider [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Yandex [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Sogou [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Exabot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} facebot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} facebookexternalhit [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} GPTBot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ChatGPT-User [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ClaudeBot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} anthropic-ai [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} CCBot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} omgili [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Bytespider [NC]
+RewriteRule ^.* - [F,L]
+
+# Set X-Robots-Tag headers to prevent indexing, archiving, and snippet generation
+<IfModule mod_headers.c>
+Header set X-Robots-Tag "noindex, noarchive, nosnippet"
+</IfModule>
+
+# Disable directory browsing for additional privacy
+Options -Indexes
+
+# Optional: Block image hotlinking
+# RewriteCond %{HTTP_REFERER} !^$
+# RewriteCond %{HTTP_REFERER} !^https?://(www\.)?yourdomain\.com [NC]
+# RewriteRule \.(jpg|jpeg|png|gif|webp)$ - [F,NC,L]
+
+# Optional: Custom 403 Forbidden page for blocked bots
+# ErrorDocument 403 /403.html
